@@ -1,0 +1,16 @@
+# The name of your Cloudflare Workers project
+name = "my-worker"
+
+# Your Cloudflare account ID
+account_id = "your_account_id_here"
+
+# Workers type, defaults to 'javascript'
+type = "javascript"
+
+# The compatibility date ensures your worker uses the latest runtime features
+compatibility_date = "2023-09-29"
+
+# KV Namespace Bindings: Include if your application needs to access KV storage
+kv_namespaces = [
+  { binding = "MY_KV_NAMESPACE", id = "kv_namespace_id_here" }
+]

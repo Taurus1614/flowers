@@ -1,22 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Valentine?</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Will you be my Valentine?</h1>
-        <div class="buttons">
-            <button class="yes-button" onclick="handleYesClick()">Yes</button>
-            <button class="no-button" onclick="handleNoClick()">No</button>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Doğum Günü Mesajı</title>
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            #start-btn {
+                font-size: 20px;
+                padding: 10px 20px;
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="start-btn">🎵 Müziği Başlat ve Mesajı Göster</button>
+
+        <audio id="bg-music" loop>
+            <source src="/flowers/muzik.mp3.mp3" type="audio/mpeg" />
+        </audio>
+
+        <div id="birthday-message" style="display: none" class="Happy_Birthday">
+            <h1>İyi ki doğdun <span class="name">ALI</span>! 🎉</h1>
+            <p>My Love ❤️</p>
+            <div class="rainbow-text">
+                <span>H</span><span>A</span><span>P</span><span>P</span><span>Y</span>
+                <span> </span>
+                <span>B</span><span>I</span><span>R</span><span>T</span><span>H</span><span>D</span><span>A</span
+                ><span>Y</span><span>!</span>
+            </div>
         </div>
-        <div class="gif_container">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+
+        <script>
+            document.getElementById("start-btn").addEventListener("click", () => {
+                const audio = document.getElementById("bg-music");
+                const message = document.getElementById("birthday-message");
+                audio
+                    .play()
+                    .then(() => {
+                        message.style.display = "block";
+                        document.getElementById("start-btn").style.display = "none";
+                    })
+                    .catch((e) => {
+                        alert("Tarayıcı sesi oynatmayı engelledi.");
+                        console.error(e);
+                    });
+            });
+        </script>
+    </body>
 </html>
